@@ -21,15 +21,15 @@ The Nix expression automatically fetches and patches the correct binaries for yo
 ## Building
 
 ```bash
-flox build cudatoolkit
+flox build cudatoolkit-13_0
 ```
 
-This creates a `result-cudatoolkit` symlink to the built package in `/nix/store`.
+This creates a `result-cudatoolkit-13_0` symlink to the built package in `/nix/store`.
 
 ## Testing the Build
 
 ```bash
-./result-cudatoolkit/bin/nvcc --version
+./result-cudatoolkit-13_0/bin/nvcc --version
 ```
 
 ## Publishing
@@ -37,9 +37,9 @@ This creates a `result-cudatoolkit` symlink to the built package in `/nix/store`
 After committing and pushing to a git remote:
 
 ```bash
-flox publish cudatoolkit
+flox publish cudatoolkit-13_0
 # Or to publish to an organization:
-# flox publish -o <org-name> cudatoolkit
+# flox publish -o <org-name> cudatoolkit-13_0
 ```
 
 ## Installation
@@ -47,10 +47,10 @@ flox publish cudatoolkit
 After publishing, users can install with:
 
 ```bash
-flox install <username>/cudatoolkit
-# Or: flox install <org-name>/cudatoolkit
+flox install <username>/cudatoolkit-13_0
+# Or: flox install <org-name>/cudatoolkit-13_0
 ```
 
 ## Technical Details
 
-This uses a Nix expression (`.flox/pkgs/cudatoolkit.nix`) that references `cudaPackages_13.cudatoolkit` from nixpkgs. The nixpkgs CUDA infrastructure handles downloading NVIDIA redistributable binaries and patching them for Nix.
+This uses a Nix expression (`.flox/pkgs/cudatoolkit-13_0.nix`) that references `cudaPackages_13.cudatoolkit` from nixpkgs. The nixpkgs CUDA infrastructure handles downloading NVIDIA redistributable binaries and patching them for Nix.
